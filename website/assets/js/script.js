@@ -22,6 +22,47 @@ document.addEventListener("DOMContentLoaded", function(){
     .catch(error => console.error("Error loading portfolio data:", error));
 })
 
+document.addEventListener("DOMContentLoaded", function () {
+  const dropArea = document.getElementById("drop-area");
+  const fileInput = document.getElementById("file");
+
+  // Highlight drop area when file is dragged over
+  dropArea.addEventListener("dragover", (e) => {
+    e.preventDefault();
+    dropArea.classList.add("highlight");
+  });
+
+  dropArea.addEventListener("dragleave", () => {
+    dropArea.classList.remove("highlight");
+  });
+
+  // Handle file drop
+  dropArea.addEventListener("drop", (e) => {
+    e.preventDefault();
+    dropArea.classList.remove("highlight");
+
+    const files = e.dataTransfer.files;
+    handleFiles(files);
+  });
+
+  // Open file browser on click
+  document.getElementById("file-select").addEventListener("click", () => {
+    fileInput.click();
+  });
+
+  // Handle file selection
+  fileInput.addEventListener("change", () => {
+    const files = fileInput.files;
+    handleFiles(files);
+  });
+
+  function handleFiles(files) {
+    // Here, you can display selected files or perform additional validation
+    console.log("Files selected:", files);
+  }
+});
+
+
 
 document.addEventListener("DOMContentLoaded", function () {
     const form = document.querySelector("form");

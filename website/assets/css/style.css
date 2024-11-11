@@ -65,14 +65,38 @@ nav a:hover {
 
 
 /* Main Section Styling */
-section {
-  padding: 2rem;
-  max-width: 900px;
-  margin: 2rem auto;
-  background-color: #fff;
-  border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+/* Service Section on Services Page */
+#services {
+  max-width: 800px;
+  margin: auto;
 }
+
+.service-section {
+  background-color: #f8faff;
+  border: 1px solid #e3eaf0;
+  padding: 1.5rem;
+  border-radius: 6px;
+  margin-bottom: 1.5rem;
+  transition: transform 0.2s ease-in-out;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.service-section:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.service-section h3 {
+  font-size: 1.5rem;
+  color: #1a73e8;
+  margin-bottom: 0.5rem;
+}
+
+.service-section p {
+  color: #555;
+  line-height: 1.5;
+}
+
 
 h2 {
   color: #1a73e8;
@@ -188,4 +212,43 @@ footer a:hover {
   section {
     padding: 1.5rem;
   }
+
+  /* Drag and Drop Area */
+#drop-area {
+  border: 2px dashed #1a73e8;
+  border-radius: 8px;
+  background-color: #f0f8ff; /* Light blue background for visibility */
+  padding: 2rem;
+  text-align: center;
+  margin-bottom: 1rem;
+  transition: border-color 0.3s, background-color 0.3s;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#drop-area p {
+  color: #555;
+  font-size: 1rem;
+  margin: 0;
+}
+
+#drop-area .highlight {
+  border-color: #155ab7;
+  background-color: #e3f2fd; /* Darker shade on highlight */
+}
+
+#file-select {
+  color: #1a73e8;
+  font-weight: bold;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+#file-select:hover {
+  color: #155ab7;
+}
+
 }
