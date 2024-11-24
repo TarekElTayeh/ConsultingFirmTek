@@ -25,4 +25,4 @@ This project is the official website for Tek Consulting. It features a dynamic a
 
 ## Contact
 
-For questions, contact `youremail@example.com`.
+For questions, contact `tarek.eltayeh@tekksolutions.ca`.
