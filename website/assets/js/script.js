@@ -78,4 +78,72 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
   });
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const typewriter = document.getElementById("typewriter");
+    const textArray = ["Empowering Businesses", "Creating Innovative Solutions", "Transforming Ideas Into Reality"];
+    let textIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
   
+    function type() {
+      const currentText = textArray[textIndex];
+      typewriter.textContent = currentText.substring(0, charIndex);
+  
+      if (!isDeleting && charIndex < currentText.length) {
+        charIndex++;
+        setTimeout(type, 100);
+      } else if (isDeleting && charIndex > 0) {
+        charIndex--;
+        setTimeout(type, 50);
+      } else {
+        isDeleting = !isDeleting;
+        if (!isDeleting) {
+          textIndex = (textIndex + 1) % textArray.length;
+        }
+        setTimeout(type, 1500);
+      }
+    }
+  
+    type();
+  });
+  let currentTestimonial = 0;
+const testimonials = document.querySelectorAll(".testimonial");
+const totalTestimonials = testimonials.length;
+
+function showTestimonial(index) {
+  testimonials.forEach((testimonial, i) => {
+    testimonial.style.display = i === index ? "block" : "none";
+  });
+}
+
+function nextTestimonial() {
+  currentTestimonial = (currentTestimonial + 1) % totalTestimonials;
+  showTestimonial(currentTestimonial);
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  showTestimonial(currentTestimonial);
+  setInterval(nextTestimonial, 5000); // Change testimonial every 5 seconds
+});
+document.querySelectorAll("section").forEach((section) => {
+  const observer = new IntersectionObserver(
+    ([entry]) => {
+      if (entry.isIntersecting) {
+        section.classList.add("visible");
+        observer.unobserve(section);
+      }
+    },
+    { threshold: 0.2 }
+  );
+  observer.observe(section);
+});
+const carousel = document.querySelector('.testimonial-carousel');
+let index = 0;
+
+function showNextTestimonial() {
+  index = (index + 1) % carousel.children.length;
+  carousel.style.transform = `translateX(-${index * 100}%)`;
+}
+
+setInterval(showNextTestimonial, 5000);
