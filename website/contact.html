@@ -1,35 +1,15 @@
 <section>
   <h2>Contact Us</h2>
-  <form action="submit_form.php" method="POST" enctype="multipart/form-data">
+  <form action="https://tekksolutions.ca/submit_form.php" enctype="multipart/form-data" method="POST">
+    <!-- Placeholder email updated -->
+    <input id="email" name="email" required="" type="email" placeholder="example@tekksolutions.ca" />
     
-    <!-- Name (Required) -->
-    <label for="name">Name <span class="required">*</span></label>
-    <input type="text" id="name" name="name" required>
-    
-    <!-- Email (Required) -->
-    <label for="email">Email <span class="required">*</span></label>
-    <input type="email" id="email" name="email" required>
-    
-    <!-- Message (Required) -->
-    <label for="message">Message <span class="required">*</span></label>
-    <textarea id="message" name="message" required></textarea>
-    
-    <!-- Company Name -->
-    <label for="company">Company Name</label>
-    <input type="text" id="company" name="company">
-    
-    <!-- Phone Number -->
-    <label for="phone">Phone Number</label>
-    <input type="tel" id="phone" name="phone">
-    
-    <!-- Drag and Drop File Upload -->
-    <label for="file">Attach Files</label>
-    <div id="drop-area">
-      <p>Drag & Drop files here or <span id="file-select">browse files</span></p>
-      <input type="file" id="file" name="file[]" multiple hidden>
-    </div>
-    
-    <!-- Submit Button -->
-    <button type="submit">Submit</button>
+  <label for="file">Attach Files</label>
+  <div id="drop-area">
+  <p>Drag & Drop files here or <span id="file-select">browse files</span></p>
+  <input hidden="" id="file" multiple="" name="file[]" type="file"/>
+  </div>
+  <button type="submit">Submit</button>
   </form>
-</section>
+  </section>
+  
