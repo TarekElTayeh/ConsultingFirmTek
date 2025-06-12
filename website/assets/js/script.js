@@ -3,7 +3,8 @@ document.addEventListener("DOMContentLoaded", function(){
     fetch("assets/data/portfolio.json")
     .then(response => response.json())
     .then(data => {
-        const portfolioItems = document.getElementById("porfolio-items");
+        const portfolioItems = document.querySelector(".portfolio-grid");
+        if (!portfolioItems) return;
         data.forEach(item => {
             const itemDiv = document.createElement("div");
             itemDiv.classList.add("portfolio-items");
