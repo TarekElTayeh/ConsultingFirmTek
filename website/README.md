@@ -16,7 +16,7 @@ This project is the official website for Tek Consulting. It features a dynamic a
 
 1. Interactive typewriter effect in the hero section.
 2. Responsive layout optimized for all devices.
-3. Dynamic testimonial carousel.
+3. Placeholder code for a testimonial carousel (not yet implemented).
 
 ## Setup Instructions
 
