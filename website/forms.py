@@ -1,13 +1,24 @@
+"""Form definitions for authentication views."""
+
 from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField, SubmitField
-from wtforms.validators import InputRequired, Email, Length
+from wtforms import PasswordField, StringField, SubmitField
+from wtforms.validators import Email, InputRequired, Length
 
-class LoginForm(FlaskForm):
-    email = StringField('Email', validators=[InputRequired(), Email()])
-    password = PasswordField('Password', validators=[InputRequired(), Length(min=6)])
-    submit = SubmitField('Sign up')
 
-class SignupForm(FlaskForm):
-    email = StringField('Email', validators=[InputRequired(), Email()])
-    password = PasswordField('Password', validators=[InputRequired(), Length(min=6)])
-    submit = SubmitField('Sign Up')
+class CredentialsForm(FlaskForm):
+    """Base form providing email and password fields."""
+
+    email = StringField("Email", validators=[InputRequired(), Email()])
+    password = PasswordField("Password", validators=[InputRequired(), Length(min=6)])
+
+
+class LoginForm(CredentialsForm):
+    """Form for logging in existing users."""
+
+    submit = SubmitField("Log In")
+
+
+class SignupForm(CredentialsForm):
+    """Form for registering new users."""
+
+    submit = SubmitField("Sign Up")

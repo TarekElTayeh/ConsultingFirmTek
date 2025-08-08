@@ -1,9 +1,24 @@
-from flask_login import login_required, current_user
-from flask import abort
+"""Client dashboard views."""
 
-@client.route('/client_dashboard')
+from flask import Blueprint, abort, render_template
+from flask_login import current_user, login_required
+
+
+client = Blueprint("client", __name__)
+
+
+def _is_client(user) -> bool:
+    """Return True if the given user has the client role."""
+
+    return getattr(user, "role", None) == "client"
+
+
+@client.route("/client_dashboard")
 @login_required
-def client_dashboard():
-    if current_user.role != 'client':
+def dashboard():
+    """Render the dashboard for authenticated client users."""
+
+    if not _is_client(current_user):
         abort(403)
-    return render_template('client_dashboard.html')
+    return render_template("client_dashboard.html")
+
